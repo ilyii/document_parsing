@@ -1,0 +1,5 @@
+pymupdf
+opencv-python
+Pillow
+ultralytics
+python-doctr
