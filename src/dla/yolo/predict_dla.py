@@ -19,7 +19,7 @@ ID2LABEL = {
 }
 IMAGES_DIR = sys.argv[1]
 MODEL_WEIGHTS_PATH = (
-    r"D:\workspace\doc-understanding\runs\dla\yolov11s_v13\weights\best.pt"
+    r"C:\Users\ihett\Workspace\document_parsing\runs\dla\yolo_signature8\weights\best.pt"
 )
 
 

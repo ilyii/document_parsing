@@ -29,31 +29,3 @@ def run_dla(imgp):
             labels.append(ID2LABEL[lbl])
     return extracts, labels
 
-
-if __name__ == "__main__":
-    import sys
-    import os
-    from pathlib import Path
-    import utils
-
-    SRC = sys.argv[1]
-    DST_ROOT = sys.argv[2]
-    WEIGHTS_DIR = sys.argv[3]
-    WEIGHTS = [os.path.join(WEIGHTS_DIR, f) for f in os.listdir(WEIGHTS_DIR)]
-
-    imagepaths = utils.find_images(SRC)
-    
-    for weights in WEIGHTS:
-        model_name = Path(weights).stem
-        # dst_path = os.path.join(DST_ROOT, model_name)
-        # os.makedirs(dst_path, exist_ok=True)
-        try:
-            model = YOLO(weights)
-            res = model(imagepaths, save=True, project="dla", name=model_name)
-        except Exception as e:
-            import traceback
-            print(e)
-            print(traceback.format_exc())
-            continue
-
-    
