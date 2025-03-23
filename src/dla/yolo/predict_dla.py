@@ -8,19 +8,18 @@ from ultralytics import YOLO
 
 ID2LABEL = {
     0: "text",
-    1: "title",
-    2: "figure",
+    1: "checkbox",
+    2: "form_field",
     3: "table",
-    4: "list",
-    5: "form_field",
-    6: "checkbox",
+    4: "equation",
+    5: "key_value",
+    6: "signature",
     7: "logo",
-    8: "signature",
+    8: "stamp"
 }
+
 IMAGES_DIR = sys.argv[1]
-MODEL_WEIGHTS_PATH = (
-    r"C:\Users\ihett\Workspace\document_parsing\runs\dla\yolo_signature8\weights\best.pt"
-)
+MODEL_WEIGHTS_PATH = sys.argv[2]
 
 
 def find_images(root) -> list:
@@ -50,7 +49,7 @@ if __name__ == "__main__":
             xyxy = xyxy.int().tolist()
             cl = cl.int().item()
             cv2.rectangle(
-                img, (xyxy[0], xyxy[1]), (xyxy[2], xyxy[3]), (0, 255, 0), 2
+                img, (xyxy[0], xyxy[1]), (xyxy[2], xyxy[3]), (255, 0, 0), 2
             )
             cv2.putText(
                 img,
